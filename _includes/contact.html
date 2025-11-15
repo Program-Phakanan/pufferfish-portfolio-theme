@@ -1,0 +1,48 @@
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-header centered reveal">
+            <span class="section-number"></span>
+            <h2 class="section-title">{{ site.contact.title | default: "Get In Touch" }}</h2>
+        </div>
+        <div class="contact-content reveal">
+            <p class="contact-text">
+                {{ site.contact.description | default: "I'm currently looking for new opportunities and my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!" }}
+            </p>
+            <div class="contact-info-grid">
+                {% if site.contact.email %}
+                <div class="contact-info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>
+                    </div>
+                </div>
+                {% endif %}
+                {% if site.contact.phone %}
+                <div class="contact-info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <a href="tel:{{ site.contact.phone }}">{{ site.contact.phone }}</a>
+                    </div>
+                </div>
+                {% endif %}
+                {% if site.contact.location %}
+                <div class="contact-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>{{ site.contact.location }}</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% if site.contact.email %}
+            <a href="mailto:{{ site.contact.email }}" class="btn btn-primary btn-large">
+                <span>{{ site.contact.cta | default: "Say Hello" }}</span>
+                <i class="fas fa-paper-plane"></i>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</section>

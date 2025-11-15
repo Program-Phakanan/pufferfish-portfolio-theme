@@ -1,0 +1,66 @@
+<section id="projects" class="projects">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-number"></span>
+            <h2 class="section-title">{{ site.projects.title | default: "Things I've Built" }}</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <!-- Project Slider -->
+        <div class="projects-slider reveal">
+            <div class="slider-wrapper">
+                {% for project in site.projects.items %}
+                <div class="project-slide {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+                    <div class="project-visual">
+                        <div class="project-image-container">
+                            <img src="{{ project.image }}">
+                            <div class="project-overlay">
+                                <div class="project-number">{{ forloop.index | prepend: '00' | slice: -2, 2 }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <span class="project-tag">{{ project.category }}</span>
+                        <h3 class="project-name">{{ project.name }}</h3>
+                        <p class="project-desc">{{ project.description }}</p>
+                        <div class="project-stack">
+                            {% for tech in project.technologies %}
+                            <span class="tech-tag">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="project-actions">
+                            {% if project.github %}
+                            <a href="{{ project.github }}" class="project-btn primary" target="_blank">
+                                <i class="fab fa-github"></i>
+                                <span>View Code</span>
+                            </a>
+                            {% endif %}
+                            {% if project.demo %}
+                            <a href="{{ project.demo }}" class="project-btn secondary" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Live Demo</span>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Simple Navigation -->
+            <div class="slider-nav">
+                <button class="nav-arrow prev" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider-dots">
+                    {% for project in site.projects.items %}
+                    <button class="dot {% if forloop.first %}active{% endif %}" data-slide="{{ forloop.index0 }}"></button>
+                    {% endfor %}
+                </div>
+                <button class="nav-arrow next" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

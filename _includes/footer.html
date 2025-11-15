@@ -1,0 +1,15 @@
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p>{{ site.footer.text | default: "Designed & Built by" }} {{ site.author.name }}</p>
+            <div class="footer-links">
+                {% if site.social.github %}
+                <a href="{{ site.social.github }}" target="_blank"><i class="fab fa-github"></i></a>
+                {% endif %}
+                {% if site.social.linkedin %}
+                <a href="{{ site.social.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</footer>

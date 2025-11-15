@@ -1,0 +1,33 @@
+<section id="about" class="about">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-number"></span>
+            <h2 class="section-title">About Me</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="about-content reveal">
+            <div class="about-text">
+                <p>{{ site.about.intro }}</p>
+                
+                {% if site.about.paragraphs %}
+                    {% for paragraph in site.about.paragraphs %}
+                    <p>{{ paragraph }}</p>
+                    {% endfor %}
+                {% endif %}
+
+                <p class="tech-intro">{{ site.about.tech_intro | default: "Here are a few technologies I've been working with recently:" }}</p>
+                <ul class="tech-list">
+                    {% for tech in site.about.technologies %}
+                    <li><i class="fas fa-angle-right"></i> {{ tech }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="about-image">
+                <div class="image-wrapper">
+                    <div class="image-border"></div>
+                    <img src="{{ site.about.image | default: 'https://via.placeholder.com/350' }}" alt="{{ site.author.name }}" class="profile-pic">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

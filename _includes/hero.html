@@ -1,0 +1,59 @@
+<section id="home" class="hero">
+    <div class="hero-background">
+        <div class="grid-overlay"></div>
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-intro">
+                <span class="hero-greeting">{{ site.hero.greeting | default: "Hi, my name is" }}</span>
+                <h2 class="hero-tagline">{{ site.author.name }}</h2>
+                <p class="hero-description">
+                    {{ site.hero.description | default: "I'm a software developer specializing in building exceptional digital experiences." }}
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>{{ site.hero.cta_primary | default: "View My Work" }}</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <span>{{ site.hero.cta_secondary | default: "Get In Touch" }}</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="code-content">
+                        <code><span class="code-keyword">const</span> <span class="code-var">dev</span> = {
+  <span class="code-property">name</span>: <span class="code-string">"{{ site.author.name }}"</span>,
+  <span class="code-property">role</span>: <span class="code-string">"{{ site.author.role | default: 'Backend Dev' }}"</span>,
+  <span class="code-property">skills</span>: [
+    {% for skill in site.author.skills limit:2 %}<span class="code-string">"{{ skill }}"</span>{% unless forloop.last %},
+    {% endunless %}{% endfor %}
+  ],
+  <span class="code-property">passion</span>: 
+    <span class="code-string">"{{ site.author.passion | default: 'smooth data' }}"</span>
+};</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="social-sidebar">
+        {% if site.social.github %}
+        <a href="{{ site.social.github }}" target="_blank" class="social-icon">
+            <i class="fab fa-github"></i>
+        </a>
+        {% endif %}
+        {% if site.social.linkedin %}
+        <a href="{{ site.social.linkedin }}" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        {% endif %}
+        <div class="social-line"></div>
+    </div>
+</section>
